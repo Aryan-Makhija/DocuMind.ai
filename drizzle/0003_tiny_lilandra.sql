@@ -1,0 +1,1 @@
+ALTER TABLE "documents" ALTER COLUMN "error_message" SET DEFAULT 'Pending';
