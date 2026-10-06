@@ -161,6 +161,9 @@ import {
 import { rateLimit } from "@/lib/rateLimit";
 import { AppError } from "@/lib/errors/AppError";
 
+import { getFileHash } from "@/lib/document/hash";
+import { and } from "drizzle-orm";
+
 export async function POST(request) {
     let documentId = null;
     let filePath = null;
@@ -227,21 +230,9 @@ export async function POST(request) {
         }
 
         // Create document record
+        // Create temporary file
         documentId = randomUUID();
 
-        const db = getDb();
-
-        await db.insert(documents).values({
-            id: documentId,
-            userId,
-            name: file.name,
-            fileName: file.name,
-            fileSize: file.size,
-            status: DOCUMENT_STATUS.PROCESSING,
-            errorMessage: null,
-        });
-
-        // Create temporary file
         const tempDir = os.tmpdir();
 
         filePath = path.join(
@@ -257,6 +248,48 @@ export async function POST(request) {
             filePath,
             buffer
         );
+
+        // Calculate SHA-256 hash
+        const documentHash = await getFileHash(filePath);
+
+        const db = getDb();
+
+        // Check whether this user already uploaded
+        // the exact same PDF
+        const existingDocument = await db
+            .select({
+                id: documents.id,
+            })
+            .from(documents)
+            .where(
+                and(
+                    eq(documents.userId, userId),
+                    eq(documents.documentHash, documentHash)
+                )
+            )
+            .limit(1);
+
+        if (existingDocument.length > 0) {
+            throw new AppError(
+                "This document has already been uploaded.",
+                {
+                    code: "DUPLICATE_DOCUMENT",
+                    status: 409,
+                }
+            );
+        }
+
+        // Create document record
+        await db.insert(documents).values({
+            id: documentId,
+            userId,
+            name: file.name,
+            fileName: file.name,
+            fileSize: file.size,
+            documentHash,
+            status: DOCUMENT_STATUS.PROCESSING,
+            errorMessage: null,
+        });
 
         // Process PDF
         const result = await processPdf(
