@@ -167,9 +167,10 @@ import { and } from "drizzle-orm";
 export async function POST(request) {
     let documentId = null;
     let filePath = null;
-
+    let userId = null;
     try {
-        const { userId } = await auth();
+        const authResult = await auth();
+        userId = authResult.userId;
 
         if (!userId) {
             throw new AppError("Unauthorized", {
@@ -336,8 +337,7 @@ export async function POST(request) {
 
                 // Remove any partially stored vectors
                 await deleteDocumentVectors({
-                    userId:
-                        (await auth()).userId,
+                    userId,
                     documentId,
                 });
 
