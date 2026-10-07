@@ -3,4 +3,5 @@ export const DOCUMENT_STATUS = {
   PROCESSING: "processing",
   READY: "ready",
   FAILED: "failed",
+  DELETING: "deleting",
 };

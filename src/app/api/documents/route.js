@@ -8,6 +8,7 @@ import {
     deleteDocumentVectors,
 } from "@/lib/rag/vectorstore/pinecone";
 import { AppError } from "@/lib/errors/AppError";
+import { DOCUMENT_STATUS } from "@/lib/document/status";
 export async function GET() {
     try {
         const { userId } = await auth();
@@ -102,6 +103,19 @@ export async function DELETE(request) {
                 status: 404,
             });
         }
+
+        await db
+            .update(documents)
+            .set({
+                status: DOCUMENT_STATUS.DELETING,
+                updatedAt: new Date(),
+            })
+            .where(
+                and(
+                    eq(documents.id, documentId),
+                    eq(documents.userId, userId)
+                )
+            );
 
         // Pinecone deletion will be added here.
         await deleteDocumentVectors({
