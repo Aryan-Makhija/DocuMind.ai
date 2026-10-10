@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 
-import {
-  createConversation,
-} from "@/lib/chat/conversations";
+
 
 import { ensureUser } from "@/lib/db/users";
+import { createConversation } from "@/lib/chat/conversation";
 
 export async function POST(request) {
   try {

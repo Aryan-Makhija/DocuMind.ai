@@ -63,7 +63,8 @@
 
 
 import { ChatPromptTemplate } from "@langchain/core/prompts";
-import { chatModel } from "./gemini";
+import { getChatModel } from "./gemini";
+// import { chatModel } from "./gemini";
 
 function needsRewrite(question) {
     const normalized = question
@@ -145,7 +146,7 @@ export async function rewriteQuery({
         });
 
     const response =
-        await chatModel.invoke(messages);
+        await getChatModel().invoke(messages);
 
     return response.content.trim();
 }

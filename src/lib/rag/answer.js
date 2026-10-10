@@ -1,11 +1,12 @@
 import { retrieveDocuments } from "./retrieval/retrieve";
-import { chatModel } from "./generation/gemini";
+// import { chatModel } from "./generation/gemini";
 import { ragPrompt } from "./generation/prompt";
 import { formatDocuments } from "./generation/context";
 import { rewriteQuery } from "./generation/rewriteQuery";
 import {
     createTimer,
 } from "@/lib/utils/timing";
+import { getChatModel } from "./generation/gemini";
 
 
 export async function answerQuestion({
@@ -82,7 +83,7 @@ export async function answerQuestion({
         });
 
     const response =
-        await chatModel.invoke(messages);
+        await getChatModel().invoke(messages);
 
     generationTimer.end();
 
