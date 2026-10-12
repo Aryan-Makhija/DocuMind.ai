@@ -9,6 +9,8 @@ import {
 } from "@/lib/rag/vectorstore/pinecone";
 import { AppError } from "@/lib/errors/AppError";
 import { DOCUMENT_STATUS } from "@/lib/document/status";
+
+
 export async function GET() {
     try {
         const { userId } = await auth();

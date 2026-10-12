@@ -1,14 +1,31 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+const publicRoutes = ["/", "/about", "/pricing"];
+
+export default clerkMiddleware(async (auth, req) => {
+  const { pathname } = req.nextUrl;
+
+  const isPublicRoute = publicRoutes.some(
+    (route) =>
+      pathname === route ||
+      (route !== "/" && pathname.startsWith(`${route}/`))
+  );
+
+  if (!isPublicRoute) {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return (await auth()).redirectToSignIn({
+        returnBackUrl: req.url,
+      });
+    }
+  }
+});
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for Clerk's auto-proxy path
-    '/__clerk/:path*',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/__clerk/:path*",
+    "/(api|trpc)(.*)",
   ],
 };
