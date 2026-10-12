@@ -1,47 +1,4 @@
-// import Link from "next/link";
-
-// export default function Home() {
-//   return (
-//     <main className="min-h-screen bg-gray-950 text-white">
-//       <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
-//         <div className="mb-6 rounded-full border border-gray-800 bg-gray-900 px-4 py-2 text-sm text-gray-400">
-//           Personal Document Intelligence
-//         </div>
-
-//         <h1 className="max-w-3xl text-5xl font-bold tracking-tight">
-//           Chat with your documents using AI
-//         </h1>
-
-//         <p className="mt-6 max-w-2xl text-lg text-gray-400">
-//           Upload your documents, ask questions, and get answers grounded in
-//           your own content.
-//         </p>
-
-//         <Link
-//           href="/dashboard"
-//           className="mt-8 rounded-lg bg-white px-6 py-3 font-medium text-black transition hover:bg-gray-200"
-//         >
-//           Go to Dashboard
-//         </Link>
-//       </div>
-//     </main>
-//   );
-// }
-
-
-
 "use client";
-
-/**
- * DocuMind.ai — landing page
- * Next.js (App Router) · JavaScript · Tailwind CSS · Framer Motion
- *
- * Setup:
- *   npm i framer-motion lucide-react
- *   Put the hero image at  /public/document-intelligence.jpg
- *   Save this file as      app/page.jsx
- *   Make sure globals.css has the Tailwind directives and a black body background.
- */
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
@@ -289,143 +246,137 @@ function Navbar() {
 
   const { isLoaded, isSignedIn } = useUser();
   return (
-    // <motion.header
-    //   initial={{ opacity: 0, y: -16 }}
-    //   animate={{ opacity: 1, y: 0 }}
-    //   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    //   className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-    //     scrolled || open
-    //       ? "border-b border-white/[0.06] bg-black/80 backdrop-blur-md"
-    //       : "border-b border-transparent bg-transparent"
-    //   }`} 
-    // >
-    //   <div className={`${container} flex h-[84px] items-center justify-between`}>
-    //     <a href="#top" aria-label="DocuMind.ai home">
-    //       <Logo
-    //         aiClass="text-white/50"
-    //         className="!text-[26px] [&_svg]:!h-8 [&_svg]:!w-8"
-    //       />
-    //     </a>
-
-    //     <nav aria-label="Primary" className="hidden items-center gap-14 md:flex">
-    //       {NAV_LINKS.map((l) => (
-    //         <a
-    //           key={l.label}
-    //           href={l.href}
-    //           className="text-[13px] text-white/55 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
-    //         >
-    //           {l.label}
-    //         </a>
-    //       ))}
-    //     </nav>
-
-    //     <div className="flex items-center gap-3">
-    //       <a
-    //         href="#workspace"
-    //         className="group hidden h-11 items-center gap-3 rounded-md border border-white/10 bg-black px-6 text-sm font-medium text-white transition hover:border-white/25 hover:bg-white/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/60 sm:inline-flex"
-    //       >
-    //         Explore the demo
-    //         <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-    //       </a>
-
-    //       <button
-    //         onClick={() => setOpen((o) => !o)}
-    //         aria-label={open ? "Close menu" : "Open menu"}
-    //         aria-expanded={open}
-    //         className="grid h-11 w-11 place-items-center rounded-md border border-white/10 text-white md:hidden"
-    //       >
-    //         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-    //       </button>
-    //     </div>
-    //   </div>
-
-    //   {/* mobile menu */}
-    //   <AnimatePresence>
-    //     {open && (
-    //       <motion.nav
-    //         aria-label="Mobile"
-    //         initial={{ height: 0, opacity: 0 }}
-    //         animate={{ height: "auto", opacity: 1 }}
-    //         exit={{ height: 0, opacity: 0 }}
-    //         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-    //         className="overflow-hidden md:hidden"
-    //       >
-    //         <div className={`${container} flex flex-col gap-1 pb-6`}>
-    //           {NAV_LINKS.map((l) => (
-    //             <a
-    //               key={l.label}
-    //               href={l.href}
-    //               onClick={() => setOpen(false)}
-    //               className="rounded-md px-2 py-3 text-[13px] text-white/70 transition hover:bg-white/[0.04] hover:text-white"
-    //             >
-    //               {l.label}
-    //             </a>
-    //           ))}
-    //           <a
-    //             href="#workspace"
-    //             onClick={() => setOpen(false)}
-    //             className="mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-[#7cf9bd] text-sm font-medium text-black"
-    //           >
-    //             Explore the demo
-    //             <ArrowUpRight className="h-4 w-4" />
-    //           </a>
-    //         </div>
-    //       </motion.nav>
-    //     )}
-    //   </AnimatePresence>
-    // </motion.header>
-
 
     <motion.header
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open
-        ? "border-b border-white/[0.06] bg-black/80 backdrop-blur-md"
-        : "border-b border-transparent bg-transparent"
+          ? "border-b border-white/[0.06] bg-black/80 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
         }`}
     >
-      <div className={`${container} flex h-[84px] items-center justify-between`}>
-        <a href="#top" aria-label="DocuMind.ai home">
+      <div
+        className={`${container} flex h-[84px] items-center justify-between px-4 sm:px-6`}
+      >
+        {/* Logo */}
+        <a
+          href="#top"
+          aria-label="DocuMind.ai home"
+          className="relative z-50 flex shrink-0 items-center"
+        >
           <Logo
             aiClass="text-white/50"
             className="!text-[26px] [&_svg]:!h-8 [&_svg]:!w-8"
           />
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-14 md:flex">
+        {/* Desktop Navigation */}
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-10 lg:gap-14 md:flex"
+        >
           {NAV_LINKS.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-[13px] text-white/55 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
+              className="text-[15px] leading-none text-white/55 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          {/* Authentication actions */}
-          {isLoaded && (
-            isSignedIn ? (
-              <UserButton
-                appearance={{
-                  elements: {
-                    avatarBox: "h-10 w-10",
-                    userButtonTrigger:
-                      "rounded-full border border-white/10 transition hover:border-[#7cf9bd]/50",
-                    userButtonPopoverCard:
-                      "border border-white/10 bg-black text-white",
-                  },
-                }}
-              />
+        {/* Right side actions */}
+        <div className="flex shrink-0 items-center gap-3">
+          {/* Authentication actions (Desktop/Tablet) */}
+          <div className="hidden items-center gap-3 sm:flex">
+            {isLoaded && (
+              isSignedIn ? (
+                <UserButton
+                  appearance={{
+                    elements: {
+                      avatarBox: "h-10 w-10",
+                      userButtonTrigger:
+                        "flex items-center justify-center rounded-full border border-white/10 transition hover:border-[#7cf9bd]/50",
+                      userButtonPopoverCard:
+                        "border border-white/10 bg-black text-white",
+                    },
+                  }}
+                />
+              ) : (
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <SignInButton mode="modal">
+                    <button
+                      type="button"
+                      className="inline-flex h-10 items-center justify-center rounded-md border border-white/10 px-3 text-xs font-medium text-white transition hover:border-white/25 hover:bg-white/[0.05] sm:px-5 sm:text-sm"
+                    >
+                      Log in
+                    </button>
+                  </SignInButton>
+
+                  <SignUpButton mode="modal">
+                    <button
+                      type="button"
+                      className="inline-flex h-10 items-center justify-center rounded-md bg-[#7cf9bd] px-3 text-xs font-semibold text-black transition hover:bg-[#9fffcf] sm:px-5 sm:text-sm"
+                    >
+                      Sign up
+                    </button>
+                  </SignUpButton>
+                </div>
+              )
+            )}
+          </div>
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="relative z-50 grid h-10 w-10 shrink-0 place-items-center rounded-md border border-white/10 bg-black text-white sm:h-11 sm:w-11 md:hidden"
+          >
+            {open ? (
+              <X className="h-5 w-5" />
             ) : (
-              <div className="flex items-center gap-2 sm:gap-3">
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            aria-label="Mobile"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-black px-6 pb-12 pt-28 md:hidden"
+          >
+            {/* Centered Navigation Links */}
+            <nav className="my-auto flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+              {NAV_LINKS.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base font-medium leading-tight text-white/80 transition hover:text-white focus-visible:text-white sm:text-lg"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Mobile Authentication */}
+            {isLoaded && !isSignedIn && (
+              <div className="mx-auto flex w-full max-w-xs flex-col gap-3 border-t border-white/10 pt-6">
                 <SignInButton mode="modal">
                   <button
                     type="button"
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-white/10 px-3 text-xs font-medium text-white transition hover:border-white/25 hover:bg-white/[0.05] sm:px-5 sm:text-sm"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex h-11 w-full items-center justify-center rounded-md border border-white/10 text-sm font-medium text-white transition hover:border-white/25 hover:bg-white/[0.05]"
                   >
                     Log in
                   </button>
@@ -434,93 +385,32 @@ function Navbar() {
                 <SignUpButton mode="modal">
                   <button
                     type="button"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-[#7cf9bd] px-3 text-xs font-semibold text-black transition hover:bg-[#9fffcf] sm:px-5 sm:text-sm"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex h-11 w-full items-center justify-center rounded-md bg-[#7cf9bd] text-sm font-semibold text-black transition hover:bg-[#9fffcf]"
                   >
                     Sign up
                   </button>
                 </SignUpButton>
               </div>
-            )
-          )}
+            )}
 
-          {/* Mobile menu toggle */}
-          <button
-            onClick={() => setOpen((o) => !o)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="grid h-11 w-11 place-items-center rounded-md border border-white/10 text-white md:hidden"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            aria-label="Mobile"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden md:hidden"
-          >
-            <div className={`${container} flex flex-col gap-1 pb-6`}>
-              {NAV_LINKS.map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-md px-2 py-3 text-[13px] text-white/70 transition hover:bg-white/[0.04] hover:text-white"
-                >
-                  {l.label}
-                </a>
-              ))}
-
-              {/* Mobile authentication */}
-              {isLoaded && (
-                isSignedIn ? (
-                  <div className="mt-3 flex items-center gap-3 border-t border-white/10 pt-4">
-                    <UserButton
-                      appearance={{
-                        elements: {
-                          avatarBox: "h-10 w-10",
-                          userButtonPopoverCard:
-                            "border border-white/10 bg-black text-white",
-                        },
-                      }}
-                    />
-                    <span className="text-sm text-white/70">
-                      Your account
-                    </span>
-                  </div>
-                ) : (
-                  <div className="mt-3 grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
-                    <SignInButton mode="modal">
-                      <button
-                        type="button"
-                        onClick={() => setOpen(false)}
-                        className="inline-flex h-11 items-center justify-center rounded-md border border-white/10 text-sm font-medium text-white transition hover:bg-white/[0.05]"
-                      >
-                        Log in
-                      </button>
-                    </SignInButton>
-
-                    <SignUpButton mode="modal">
-                      <button
-                        type="button"
-                        onClick={() => setOpen(false)}
-                        className="inline-flex h-11 items-center justify-center rounded-md bg-[#7cf9bd] text-sm font-semibold text-black transition hover:bg-[#9fffcf]"
-                      >
-                        Sign up
-                      </button>
-                    </SignUpButton>
-                  </div>
-                )
-              )}
-            </div>
-          </motion.nav>
+            {isLoaded && isSignedIn && (
+              <div className="flex items-center justify-center gap-3 border-t border-white/10 pt-6">
+                <UserButton
+                  appearance={{
+                    elements: {
+                      avatarBox: "h-10 w-10",
+                      userButtonTrigger:
+                        "flex items-center justify-center rounded-full",
+                      userButtonPopoverCard:
+                        "border border-white/10 bg-black text-white",
+                    },
+                  }}
+                />
+                <span className="text-sm text-white/70">Your account</span>
+              </div>
+            )}
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.header>
