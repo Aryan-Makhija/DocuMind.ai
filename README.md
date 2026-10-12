@@ -1,18 +1,6 @@
 # DocuMind.ai – Multi-User PDF RAG Application
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
-[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat&logo=docker)](https://www.docker.com/)
-[![NGINX](https://img.shields.io/badge/NGINX-Load_Balancer-009639?style=flat&logo=nginx)](https://www.nginx.com/)
-[![LangChain.js](https://img.shields.io/badge/LangChain.js-Orchestration-1C3C3C?style=flat&logo=langchain)](https://js.langchain.com/)
-[![Pinecone](https://img.shields.io/badge/Pinecone-Vector_DB-000000?style=flat&logo=pinecone)](https://www.pinecone.io/)
-[![Clerk](https://img.shields.io/badge/Clerk-Auth-6C47FF?style=flat&logo=clerk)](https://clerk.com/)
-[![Neon](https://img.shields.io/badge/Neon-PostgreSQL-00E599?style=flat&logo=postgresql)](https://neon.tech/)
-[![Drizzle ORM](https://img.shields.io/badge/Drizzle-ORM-C5F74F?style=flat&logo=drizzle)](https://orm.drizzle.team/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployment-000000?style=flat&logo=vercel)](https://vercel.com/)
-
-<br />
+<p align="center"> <img src="https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js" alt="Next.js" /> <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react" alt="React" /> <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat&logo=typescript" alt="TypeScript" /> <img src="https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat&logo=tailwind-css" alt="Tailwind CSS" /> <img src="https://img.shields.io/badge/LangChain.js-RAG-1C3C3C?style=flat&logo=langchain" alt="LangChain.js" /> <img src="https://img.shields.io/badge/Pinecone-VectorDB-000000?style=flat&logo=pinecone" alt="Pinecone" /> <img src="https://img.shields.io/badge/GoogleGemini-AI-4285F4?style=flat&logo=googlegemini" alt="Google Gemini" /> <img src="https://img.shields.io/badge/Clerk-Authentication-6C47FF?style=flat&logo=clerk" alt="Clerk" /> <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=flat&logo=postgresql" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat&logo=docker" alt="Docker" /> <img src="https://img.shields.io/badge/NGINX-LoadBalancing-009639?style=flat&logo=nginx" alt="NGINX" /> <img src="https://img.shields.io/badge/Redis-Rate_Limiting-DC382D?style=flat&logo=redis" alt="Redis" /> </p>
 
 # 🚀 DocuMind.ai
 ### An AI-Powered Document Intelligence & Multi-User RAG Platform
