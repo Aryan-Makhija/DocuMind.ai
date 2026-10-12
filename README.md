@@ -178,7 +178,7 @@ docker-compose down
 💻 Option B: Running Locally (Node.js)
 1: Clone and Install Dependencies
 
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/Aryan-Makhija/DocuMind.ai.git
 cd documind
 npm install
 
@@ -222,13 +222,15 @@ sequenceDiagram
 
 2: Retrieval Pipeline: User queries pass through conversation-aware rewriting, Pinecone vector search with user-specific metadata filters, and Cohere reranking before arriving at the Gemini LLM for precise context-grounded response generation.
 
-🔌 API Overview
-Method,Endpoint,Purpose
-GET,/api/documents,Fetch authenticated user's documents
-POST,/api/documents,Upload and process a new PDF document
-DELETE,/api/documents/[documentId],Delete a user-owned document & associated vectors
-POST,/api/chat,Execute RAG pipeline and generate conversational answer
-GET,/api/dashboard,Fetch aggregate user library statistics
+# 🔌 API Overview
+
+| Method | Endpoint | Purpose |
+| :--- | :--- | :--- |
+| **GET** | `/api/documents` | Fetch authenticated user's documents |
+| **POST** | `/api/documents` | Upload and process a new PDF document |
+| **DELETE** | `/api/documents/[documentId]` | Delete a user-owned document & associated vectors |
+| **POST** | `/api/chat` | Execute RAG pipeline and generate conversational answer |
+| **GET** | `/api/dashboard` | Fetch aggregate user library statistics |
 
 🔮 Roadmap & Future Enhancements[ ] Streaming Responses: Real-time token streaming for AI chat responses.[ ] Hybrid Search: Combining keyword search (BM25) with vector similarity.[ ] Background Processing Queues: Robust asynchronous PDF ingestion handling.[ ] Persistent Object Storage: Direct cloud object storage integration for raw PDF files.[ ] Automated CI/CD: GitHub Actions pipelines for automated testing and container publishing.
 
