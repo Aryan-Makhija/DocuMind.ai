@@ -40,7 +40,7 @@ Traditional document search requires users to manually navigate large PDF files 
 * Semantic similarity search combined with Cohere reranking for precise context retrieval.
 * Single-document or multi-document conversational scope toggles.
 
-### 4. NGINX Load Balancing & Docker Containerization
+### 4. NGINX Load Balancing, Redis, Rate Limiting & Docker Containerization
 * Pre-configured `Dockerfile`, `nginx.conf`, and `docker-compose.yml` for single-command spin-up.
 * Round-robin request distribution across scaled Next.js application replicas.
 * Redis integration for high-performance API rate limiting and security.
