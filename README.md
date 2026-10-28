@@ -44,15 +44,33 @@ Traditional document search requires users to manually navigate large PDF files 
 * Semantic similarity search combined with Cohere reranking for precise context retrieval.
 * Single-document or multi-document conversational scope toggles.
 
-### 4. NGINX Load Balancing, Redis, Rate Limiting & Docker Containerization
+### 4. Conversation History and Resumable Chats
+* Every chat is saved automatically, so users can leave and come back at any time.
+* Dedicated conversation sidebar listing all past conversations, with refresh support and an active-chat highlight.
+* Open any previous conversation to reload its full message history and **continue the chat** with follow-up questions. The existing `conversationId` is sent with each request, so context carries over.
+* Deep-linkable conversations: each chat has its own URL (`/chat/[conversationId]`), so a conversation survives page reloads and can be bookmarked.
+* Messages are stored with a sequence number and always rendered in the exact order they were created, one after another.
+* Source references (document name and page number) are saved with each AI answer and shown again when a conversation is reopened.
+* A single **New Chat** action starts a fresh conversation. A new chat is created on the first question and the URL updates automatically.
+* Stale-response protection: switching chats or starting a new one while an answer is loading never mixes messages between conversations.
+* Per-user isolation: users can only list and open their own conversations.
+
+### 5. Modern Chat Workspace and Rich Responses
+* Three-column workspace layout: conversations on the left, the chat in the center, and the document library with selection controls on the right.
+* Both side panels can be collapsed on desktop to give the chat more room, and the layout choice is remembered across visits.
+* Fully responsive: on tablets and phones the panels become slide-in drawers, and the composer respects mobile safe areas.
+* AI answers are rendered as formatted Markdown, with styled tables, highlighted key terms, lists, headings, inline code and code blocks, so answers are easy to scan.
+* One-click copy of any answer, retry for failed requests, and a delete confirmation dialog for documents.
+* Live document processing status (processing, ready, failed) with automatic polling.
+
+### 6. NGINX Load Balancing, Redis, Rate Limiting & Docker Containerization
 * Pre-configured `Dockerfile`, `nginx.conf`, and `docker-compose.yml` for single-command spin-up.
 * Round-robin request distribution across scaled Next.js application replicas.
 * Redis integration for high-performance API rate limiting and security.
 
-### 5. Dashboard and Analytics
+### 7. Dashboard and Analytics
 * Real-time insights tracking total, processed, pending, and failed documents.
 * Complete overview of active user conversations and recent library uploads.
-
 ---
 
 # 🛠️ Tech Stack
