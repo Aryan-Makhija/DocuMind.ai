@@ -1,6 +1,10 @@
 # DocuMind.ai – Multi-User PDF RAG Application
 
-<p align="center"> <img src="https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js" alt="Next.js" /> <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react" alt="React" /> <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat&logo=typescript" alt="TypeScript" /> <img src="https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat&logo=tailwind-css" alt="Tailwind CSS" /> <img src="https://img.shields.io/badge/LangChain.js-RAG-1C3C3C?style=flat&logo=langchain" alt="LangChain.js" /> <img src="https://img.shields.io/badge/Pinecone-VectorDB-000000?style=flat&logo=pinecone" alt="Pinecone" /> <img src="https://img.shields.io/badge/GoogleGemini-AI-4285F4?style=flat&logo=googlegemini" alt="Google Gemini" /> <img src="https://img.shields.io/badge/Clerk-Authentication-6C47FF?style=flat&logo=clerk" alt="Clerk" /> <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=flat&logo=postgresql" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat&logo=docker" alt="Docker" /> <img src="https://img.shields.io/badge/NGINX-LoadBalancing-009639?style=flat&logo=nginx" alt="NGINX" /> <img src="https://img.shields.io/badge/Redis-Rate_Limiting-DC382D?style=flat&logo=redis" alt="Redis" /> </p>
+<p align="center"> <img src="https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js" alt="Next.js" /> <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react" alt="React" /> <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat&logo=typescript" alt="TypeScript" /> <img src="https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat&logo=tailwind-css" alt="Tailwind CSS" /> <img src="https://img.shields.io/badge/LangChain.js-RAG-1C3C3C?style=flat&logo=langchain" alt="LangChain.js" /> <img src="https://img.shields.io/badge/Pinecone-VectorDB-000000?style=flat&logo=pinecone" alt="Pinecone" /> <img src="https://img.shields.io/badge/GoogleGemini-AI-4285F4?style=flat&logo=googlegemini" alt="Google Gemini" /> <img src="https://img.shields.io/badge/Clerk-Authentication-6C47FF?style=flat&logo=clerk" alt="Clerk" /> <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=flat&logo=postgresql" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat&logo=docker" alt="Docker" /> <img src="https://img.shields.io/badge/NGINX-LoadBalancing-009639?style=flat&logo=nginx" alt="NGINX" /> <img src="https://img.shields.io/badge/Redis-Rate_Limiting-DC382D?style=flat&logo=redis" alt="Redis" /> <img src="https://img.shields.io/badge/Render-Deployment-46E3B7?style=flat&logo=render&logoColor=black" alt="Render" />
+</p>
+
+# Problem Statement – DocuMind.ai
+Extracting specific information from large PDF documents is often time-consuming and inefficient, as users must manually search through lengthy files to find relevant details. Traditional document search systems primarily rely on keyword matching and may fail to understand the context or meaning behind a user's query. Additionally, analyzing information across multiple documents, handling follow-up questions, and identifying the most relevant content can be challenging without an intelligent retrieval system. Managing document access securely for multiple users while maintaining application performance, reliability, and scalability introduces further challenges.
 
 # 🚀 DocuMind.ai
 ### An AI-Powered Document Intelligence & Multi-User RAG Platform
@@ -20,7 +24,7 @@ Traditional document search requires users to manually navigate large PDF files 
 * **Advanced Reranking**: Utilizes Cohere reranking to optimize context relevance before LLM generation.
 * **NGINX Load Balancing**: Configured reverse proxy for high availability and traffic distribution across container instances.
 * **Multi-User Data Isolation**: Securely isolates documents and conversations between users via robust ownership validation.
-
+* **Cloud Deployment**: Seamlessly hosted and deployed on **Render** using containerized infrastructure.
 ---
 
 # ✨ Features
