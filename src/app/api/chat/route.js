@@ -58,11 +58,7 @@ export async function POST(request) {
 
 
 
-    console.log(
-      `[CHAT] authentication: ${(
-        performance.now() - requestStart
-      ).toFixed(0)}ms`
-    );
+ 
     await ensureUser(userId);
     const body = await request.json();
 

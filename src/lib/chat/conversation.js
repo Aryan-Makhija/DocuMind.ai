@@ -72,7 +72,6 @@ export async function getMessages({
     )
     .orderBy(asc(messages.sequence));
 
-  console.log("[Get messages Debug]", result);
   return result;
 }
 
@@ -233,12 +232,6 @@ queries.push(
   const messageInsertIndex = conversationId ? 0 : 1;
 
   const insertedMessages = results[messageInsertIndex];
-
-  console.log("[TRANSACTION DEBUG]", {
-    conversationId: activeConversationId,
-    isNewConversation: !conversationId,
-    insertedMessages,
-  });
 
   if (insertedMessages.length !== 2) {
     throw new Error(

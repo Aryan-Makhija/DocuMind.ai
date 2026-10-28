@@ -954,26 +954,6 @@ export default function DashboardPage() {
   const closeAll = useCallback(() => setAllOpen(false), []);
   const closeUpload = useCallback(() => setUploadOpen(false), []);
 
-
-
-  async function getconversation() {
-
-    const conversationId = "441529c8-b508-46f6-86ba-8a8960f86161";
-
-    const response = await fetch(`/api/conversation.js/${encodeURIComponent(conversationId)}`)
-
-    const data = await response.json();
-    console.log("response data", data);
-  }
-  useEffect(() => {
-
-    getconversation()
-  }, [])
-
-
-
-
-
   return (
     <div
       ref={root}

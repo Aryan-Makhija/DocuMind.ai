@@ -67,7 +67,7 @@ export default function DocumentsPage() {
             );
 
             
-            console.log(data)
+         
             if (!response.ok) {
                 throw new Error(
                     data.error || "Upload failed"

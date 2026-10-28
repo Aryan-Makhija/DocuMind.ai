@@ -1,101 +1,3 @@
-// "use client";
-
-// import Link from "next/link";
-// import {
-//   MessageSquare,
-//   Plus,
-//   Loader2,
-//   RefreshCw,
-// } from "lucide-react";
-
-// export default function ConversationSidebar({
-//   conversations,
-//   activeConversationId,
-//   loading,
-//   error,
-//   onNewChat,
-//   onSelect,
-//   onRefresh,
-// }) {
-//   return (
-//     <div className="flex h-full min-h-0 flex-col bg-[#060606]">
-//       <div className="border-b border-white/10 px-4 py-5">
-//         <button
-//           type="button"
-//           onClick={onNewChat}
-//           className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#7cf9bd]/30 bg-[#7cf9bd]/10 px-4 py-3 text-sm font-medium text-[#7cf9bd] transition hover:bg-[#7cf9bd]/20"
-//         >
-//           <Plus className="h-4 w-4" />
-//           New Chat
-//         </button>
-//       </div>
-
-//       <div className="flex items-center justify-between px-4 py-4">
-//         <h2 className="text-xs font-semibold uppercase tracking-wider text-white/60">
-//           Your Conversations
-//         </h2>
-
-//         <button
-//           type="button"
-//           onClick={onRefresh}
-//           aria-label="Refresh conversations"
-//           className="text-white/50 hover:text-[#7cf9bd]"
-//         >
-//           <RefreshCw className="h-4 w-4" />
-//         </button>
-//       </div>
-
-//       <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">
-//         {loading && conversations.length === 0 && (
-//           <div className="flex justify-center py-8">
-//             <Loader2 className="h-5 w-5 animate-spin text-[#7cf9bd]" />
-//           </div>
-//         )}
-
-//         {error && (
-//           <p className="px-3 py-3 text-xs text-red-400">
-//             {error}
-//           </p>
-//         )}
-
-//         {!loading && !error && conversations.length === 0 && (
-//           <p className="px-3 py-5 text-center text-xs text-white/50">
-//             No conversations yet.
-//           </p>
-//         )}
-
-//         <div className="space-y-1">
-//           {conversations.map((conversation) => {
-//             const active =
-//               conversation.id === activeConversationId;
-
-//             return (
-//               <Link
-//                 key={conversation.id}
-//                 href={`/chat/${encodeURIComponent(conversation.id)}`}
-//                 onClick={() => onSelect(conversation.id)}
-//                 aria-current={active ? "page" : undefined}
-//                 className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition ${
-//                   active
-//                     ? "bg-[#7cf9bd]/10 text-[#7cf9bd]"
-//                     : "text-white/70 hover:bg-white/[0.06] hover:text-white"
-//                 }`}
-//               >
-//                 <MessageSquare className="h-4 w-4 shrink-0" />
-
-//                 <span className="truncate">
-//                   {conversation.title || "New conversation"}
-//                 </span>
-//               </Link>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 
 "use client";
 
@@ -109,12 +11,7 @@ import {
   X,
 } from "lucide-react";
 
-/**
- * Props
- * - onClose: optional. When passed, a close button is shown in the header.
- * - drawer:  true when rendered inside the mobile drawer (shows an X icon,
- *            otherwise shows the "collapse sidebar" icon).
- */
+
 export default function ConversationSidebar({
   conversations,
   activeConversationId,
