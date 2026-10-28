@@ -454,11 +454,10 @@ function AllDocumentsModal({ state, onRetry, onClose }) {
               <button
                 key={f.key}
                 onClick={() => setFilter(f.key)}
-                className={`relative rounded-full border px-3.5 py-1.5 text-[11.5px] transition-colors ${
-                  active
-                    ? "border-[#7cf9bd]/40 text-[#7cf9bd]"
-                    : "border-white/10 text-white/50 hover:border-white/25 hover:text-white"
-                }`}
+                className={`relative rounded-full border px-3.5 py-1.5 text-[11.5px] transition-colors ${active
+                  ? "border-[#7cf9bd]/40 text-[#7cf9bd]"
+                  : "border-white/10 text-white/50 hover:border-white/25 hover:text-white"
+                  }`}
               >
                 {active && (
                   <motion.span
@@ -625,11 +624,10 @@ function UploadModal({ onClose, onSelect }) {
           }}
           animate={{ scale: dragging ? 1.02 : 1 }}
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
-          className={`flex flex-col items-center rounded-xl border border-dashed px-6 py-10 text-center transition-colors ${
-            dragging
-              ? "border-[#7cf9bd] bg-[#7cf9bd]/[0.07]"
-              : "border-white/15 bg-white/[0.015] hover:border-white/30"
-          }`}
+          className={`flex flex-col items-center rounded-xl border border-dashed px-6 py-10 text-center transition-colors ${dragging
+            ? "border-[#7cf9bd] bg-[#7cf9bd]/[0.07]"
+            : "border-white/15 bg-white/[0.015] hover:border-white/30"
+            }`}
         >
           <div
             ref={iconRef}
@@ -955,6 +953,26 @@ export default function DashboardPage() {
 
   const closeAll = useCallback(() => setAllOpen(false), []);
   const closeUpload = useCallback(() => setUploadOpen(false), []);
+
+
+
+  async function getconversation() {
+
+    const conversationId = "441529c8-b508-46f6-86ba-8a8960f86161";
+
+    const response = await fetch(`/api/conversation.js/${encodeURIComponent(conversationId)}`)
+
+    const data = await response.json();
+    console.log("response data", data);
+  }
+  useEffect(() => {
+
+    getconversation()
+  }, [])
+
+
+
+
 
   return (
     <div

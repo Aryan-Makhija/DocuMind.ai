@@ -36,6 +36,20 @@
       "when": 1791299244572,
       "tag": "0004_cultured_red_wolf",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793115023936,
+      "tag": "0005_cloudy_slipstream",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793115426340,
+      "tag": "0006_fuzzy_gamora",
+      "breakpoints": true
     }
   ]
 }

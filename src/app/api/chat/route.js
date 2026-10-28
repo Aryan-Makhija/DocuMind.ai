@@ -8,6 +8,7 @@ import {
   getConversation,
   getMessages,
   addMessage,
+  saveConversationTurn,
 } from "@/lib/chat/conversation";
 import {
   verifyUserDocuments,
@@ -84,7 +85,8 @@ export async function POST(request) {
       parsed.data;
 
     let conversationId =
-      requestedConversationId;
+      requestedConversationId ?? null;
+    let previousMessages = []
 
     // Document id validation step 
     const documentsAreValid =
@@ -120,24 +122,27 @@ export async function POST(request) {
     }
 
     // Verify ownership
-    const conversation =
-      await getConversation({
-        conversationId,
-        userId,
-      });
+    if (conversationId) {
 
-    if (!conversation) {
-      throw new AppError("Conversation not found", {
-        code: "CONVERSATION_NOT_FOUND",
-        status: 404,
-      });
+      const conversation =
+        await getConversation({
+          conversationId,
+          userId,
+        });
+
+      if (!conversation) {
+        throw new AppError("Conversation not found", {
+          code: "CONVERSATION_NOT_FOUND",
+          status: 404,
+        });
+      }
+
+      previousMessages =
+        await getMessages({
+          conversationId,
+          userId,
+        });
     }
-
-    const previousMessages =
-      await getMessages({
-        conversationId,
-        userId,
-      });
 
     const history =
       previousMessages.map((message) => ({
@@ -154,21 +159,28 @@ export async function POST(request) {
       });
 
     // Store user message
-    await addMessage({
-      conversationId,
-      role: "user",
-      content: question,
-    });
+    // await addMessage({
+    //   conversationId,
+    //   role: "user",
+    //   content: question,
+    // });
 
-    // Store assistant message
-    await addMessage({
+    // // Store assistant message
+    // await addMessage({
+    //   conversationId,
+    //   role: "assistant",
+    //   content: result.answer,
+    // });
+    const savedConversationId = await saveConversationTurn({
+      userId,
       conversationId,
-      role: "assistant",
-      content: result.answer,
+      question,
+      answer: result.answer,
+      sources: result.sources || []
     });
 
     return NextResponse.json({
-      conversationId,
+      conversationId: savedConversationId,
       answer: result.answer,
       sources: result.sources,
     });

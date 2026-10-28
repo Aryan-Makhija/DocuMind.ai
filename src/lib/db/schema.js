@@ -4,6 +4,7 @@ import {
   timestamp,
   integer,
   unique,
+  jsonb,
 } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
@@ -78,8 +79,16 @@ export const messages = pgTable("messages", {
   role: text("role").notNull(),
 
   content: text("content").notNull(),
+  // Added to maintain the messages sequence for ui 
+  sequence: integer("sequence")
+    .generatedAlwaysAsIdentity(),
+
+  sources: jsonb("sources")
+    .default([])
+    .notNull(),
 
   createdAt: timestamp("created_at")
     .defaultNow()
     .notNull(),
+
 });
