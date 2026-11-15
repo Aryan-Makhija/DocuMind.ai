@@ -83,7 +83,8 @@
 
 import { Pinecone } from "@pinecone-database/pinecone";
 import { PineconeStore } from "@langchain/pinecone";
-import { getEmbeddings } from "../embeddings/gemini";
+import { getEmbeddings } from "../embeddings/gemini.js";
+
 
 let pineconeClient;
 
